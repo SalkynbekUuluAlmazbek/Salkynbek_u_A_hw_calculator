@@ -170,6 +170,12 @@ public class MainActivity extends AppCompatActivity {
         String newNumber = textView.getText().toString();
         Double result = 0.0;
 
+
+        if (operator.isEmpty()) {
+            // No operator is selected, do nothing or display an error message
+            return;
+        }
+
         if (Double.parseDouble(newNumber) < 0.00000001 && operator == "/"
                 || newNumber.equals("") && operator == "/") {
             Toast.makeText(MainActivity.this, "На ноль делить нельзя!",
