@@ -2,10 +2,14 @@ package com.geeks.salkynbek_u_a_hw_calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.geeks.salkynbek_u_a_hw_calculator.ui.home.HomeFragment;
+import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,11 +18,25 @@ public class MainActivity extends AppCompatActivity {
     Boolean isNew = true;
     private TextView textView;
 
+    private MaterialButton btn_next;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.text_view);
+        btn_next = findViewById(R.id.btn_next);
+
+
+        findViewById(R.id.btn_next).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NextActivity.class);
+                String result = ((TextView) findViewById(R.id.text_view)).getText().toString();
+                intent.putExtra("result", result);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onNumberClick(View view) {
@@ -29,12 +47,14 @@ public class MainActivity extends AppCompatActivity {
         String number = textView.getText().toString();
         switch (view.getId()) {
             case R.id.btn_one:
+                btn_next.setVisibility(View.INVISIBLE);
                 if (onlyOneZero(number) && number.length() == 1) {
                     number = number.substring(1);
                 }
                 number = number + "1";
                 break;
             case R.id.btn_two:
+                btn_next.setVisibility(View.INVISIBLE);
                 if (onlyOneZero(number) && number.length() == 1) {
                     number = number.substring(1);
                 }
@@ -47,42 +67,50 @@ public class MainActivity extends AppCompatActivity {
                 number = number + "3";
                 break;
             case R.id.btn_four:
+                btn_next.setVisibility(View.INVISIBLE);
                 if (onlyOneZero(number) && number.length() == 1) {
                     number = number.substring(1);
                 }
                 number = number + "4";
                 break;
             case R.id.btn_five:
+                btn_next.setVisibility(View.INVISIBLE);
                 if (onlyOneZero(number) && number.length() == 1) {
                     number = number.substring(1);
                 }
                 number = number + "5";
                 break;
             case R.id.btn_six:
+                btn_next.setVisibility(View.INVISIBLE);
+
                 if (onlyOneZero(number) && number.length() == 1) {
                     number = number.substring(1);
                 }
                 number = number + "6";
                 break;
             case R.id.btn_seven:
+                btn_next.setVisibility(View.INVISIBLE);
                 if (onlyOneZero(number) && number.length() == 1) {
                     number = number.substring(1);
                 }
                 number = number + "7";
                 break;
             case R.id.btn_eight:
+                btn_next.setVisibility(View.INVISIBLE);
                 if (onlyOneZero(number) && number.length() == 1) {
                     number = number.substring(1);
                 }
                 number = number + "8";
                 break;
             case R.id.btn_nine:
+                btn_next.setVisibility(View.INVISIBLE);
                 if (onlyOneZero(number) && number.length() == 1) {
                     number = number.substring(1);
                 }
                 number = number + "9";
                 break;
             case R.id.btn_zero:
+                btn_next.setVisibility(View.INVISIBLE);
                 if (onlyOneZero(number) && number.length() == 1) {
                     number = "0";
                 } else {
@@ -170,6 +198,8 @@ public class MainActivity extends AppCompatActivity {
         String newNumber = textView.getText().toString();
         Double result = 0.0;
 
+        btn_next.setVisibility(view.getVisibility());
+
 
         if (operator.isEmpty()) {
             // No operator is selected, do nothing or display an error message
@@ -238,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
                             * Double.parseDouble(newNumber) / 100;
                     break;
             }
+
             textView.setText(result + "");
             operator = "";
         }

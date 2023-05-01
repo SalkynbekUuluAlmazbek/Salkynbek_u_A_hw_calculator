@@ -10,8 +10,21 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingTop="24dp"
+        android:paddingHorizontal="18dp"
         app:layout_constraintBottom_toTopOf="@id/container"
         app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:id="@+id/btn_next"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:backgroundTint="@color/dark"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:cornerRadius="18dp"
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/text_view"

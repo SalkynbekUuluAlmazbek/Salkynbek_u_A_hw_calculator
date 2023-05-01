@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NextActivity">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:id="@+id/drawer_layout"
+        tools:openDrawer="start"
+        tools:ignore="MissingConstraints">
+
+
+        <include
+            android:id="@+id/app_bar_nav"
+            layout="@layout/app_bar_nav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_nav"
+            app:menu="@menu/activity_main_drawer" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        app:layout_constraintTop_toBottomOf="@+id/drawer_layout"
+        android:background="@color/gray"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="220dp"
+            android:minHeight="48dp"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/white"
+            android:text="Policy"
+            android:textStyle="bold"
+            android:paddingStart="12dp"/>
+
+        <EditText
+            android:id="@+id/edit_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="8dp"
+            android:minHeight="48dp"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/white"
+            android:text="Product Category"
+            android:textStyle="bold"
+            android:paddingStart="12dp"/>
+
+        <EditText
+            android:id="@+id/edit_origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="8dp"
+            android:minHeight="48dp"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/white"
+            android:text="Origin Country"
+            android:textStyle="bold"
+            android:paddingStart="12dp"/>
+
+        <EditText
+            android:id="@+id/edit_brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="8dp"
+            android:minHeight="48dp"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/white"
+            android:text="Brand"
+            android:textStyle="bold"
+            android:paddingStart="12dp"/>
+
+        <TextView
+            android:id="@+id/text_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Policies"
+            android:textSize="26sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_marginTop="64dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cornerRadius="18dp"
+            android:backgroundTint="@color/red"
+            android:text="Export"
+            android:layout_marginHorizontal="110dp"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
